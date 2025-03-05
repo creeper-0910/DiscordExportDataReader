@@ -19,6 +19,7 @@
   let index = $state(0);
   let resource;
   let searchValue = $state("");
+  const regexp = /<@[^0-9]?(\d+)>/g;
   onMount(async () => {
   if(!await exists('ExportData', { baseDir: BaseDirectory.Resource })) {
     await mkdir('ExportData', {baseDir: BaseDirectory.Resource})
@@ -78,7 +79,7 @@
       {/each}
     </ul>
   </div>
-  <ul class="list overflow-y-auto overflow-x-hidden w-full">
+  <ul class="list w-full">
   {#each roomList[index].messages as message}
   {#if message.message.includes(searchValue)}
   <li class="list-row">
