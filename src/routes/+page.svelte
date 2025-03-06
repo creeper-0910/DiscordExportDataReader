@@ -16,10 +16,10 @@
     message: "",
     attachments: []
   }
+  const attachmentsList = ["png","jpg","gif","apng","webp","tiff"];
   let index = $state(0);
   let resource;
   let searchValue = $state("");
-  const regexp = /<@[^0-9]?(\d+)>/g;
   onMount(async () => {
   if(!await exists('ExportData', { baseDir: BaseDirectory.Resource })) {
     await mkdir('ExportData', {baseDir: BaseDirectory.Resource})
@@ -41,7 +41,7 @@
           replacedMessage = replacedMessage.replace(`<@${mentions.id}>`,`<p class="text-blue-500" >@${mentions.nickname}</p>`)
           replacedMessage = replacedMessage.replace(`<@!${mentions.id}>`,`<p class="text-blue-500" >@${mentions.nickname}</p>`)
         }
-        messageData.userName = messages.author.name;
+        messageData.userName = messages.author.nickname;
         messageData.userIcon = messages.author.avatarUrl;
         messageData.date = date.toLocaleDateString();
         messageData.message = replacedMessage;
@@ -68,7 +68,7 @@
   <a class="btn btn-ghost text-xl">Discord Exporter Viewer</a>
   <input type="text" class="input" id="searchBar" placeholder="検索" />
 </div>
-<main class="bg-base-50 h-screen w-screen flex overflow-hidden">
+<main class="bg-base-50 h-[calc(100vh-4rem)] w-screen flex overflow-hidden grow">
   {#if roomList[index]?.messages?.length > 0}
   <div class="min-w-max max-w-max border-r-1 border-base-200 bg-base-200 drawer drawer-open overflow-y-auto overflow-x-hidden">
     <ul class="menu min-w-max max-w-max drawer-content">
@@ -79,10 +79,11 @@
       {/each}
     </ul>
   </div>
-  <ul class="list w-full">
+  <div class=" overflow-y-auto overflow-x-hidden">
+  <ul class="list w-full min-h-max">
   {#each roomList[index].messages as message}
-  {#if message.message.includes(searchValue)}
-  <li class="list-row">
+  {#if message.message.includes(searchValue) || message.userName.includes(searchValue) || message.date.includes(searchValue)}
+  <li class="list-row h-max">
     <div><img class="size-10 rounded-full" src={ convertFileSrc(`${resource}/ExportData/${message.userIcon}`) }/></div>
     <div>
       <div class="text-md flex gap-2 items-center">{message.userName}<p class="text-xs text-gray-400">{message.date}</p></div>
@@ -91,7 +92,22 @@
       </p>
       {#if message.attachments.length > 0}
       {#each message.attachments as attachment}
-      <div class="grid grid-cols-2 gap-2 w-1/6"><img class="object-scale-down" src={ convertFileSrc(`${resource}/ExportData/${attachment.url}`) }/></div>
+      {#if attachmentsList.includes(attachment.fileName.split('.').pop())}
+      <div class="grid grid-cols-2 gap-2 w-1/6 min-w-md"><img class="object-scale-down" src={ convertFileSrc(`${resource}/ExportData/${attachment.url}`) }/></div>
+      {:else}
+      <div class="card bg-base-200 w-max shadow-sm">
+        <div class="card-body flex flex-row min-w-sm items-center">
+          <div class="flex-auto text-md">{attachment.fileName}</div>
+          <div class="flex-none">
+            <button class="hover:bg-base-300 p-2 rounded-lg" onclick={location.href= convertFileSrc(`${resource}/ExportData/${attachment.url}`)}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      {/if}
       {/each}
       {/if}
     </div>
@@ -99,5 +115,6 @@
   {/if}
   {/each}
   </ul>
+  </div>
   {/if}
 </main>
