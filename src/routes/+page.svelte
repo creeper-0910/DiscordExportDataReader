@@ -84,7 +84,7 @@
   {#each roomList[index].messages as message}
   {#if message.message.includes(searchValue) || message.userName.includes(searchValue) || message.date.includes(searchValue)}
   <li class="list-row h-max">
-    <div><img class="size-10 rounded-full" src={ convertFileSrc(`${resource}/ExportData/${message.userIcon}`) }/></div>
+    <div><img class="size-10 rounded-full" src={ convertFileSrc(`${resource}/ExportData/${message.userIcon.replace("\\","/")}`) }/></div>
     <div>
       <div class="text-md flex gap-2 items-center">{message.userName}<p class="text-xs text-gray-400">{message.date}</p></div>
       <p class="list-col-wrap whitespace-pre-wrap">
@@ -93,13 +93,13 @@
       {#if message.attachments.length > 0}
       {#each message.attachments as attachment}
       {#if attachmentsList.includes(attachment.fileName.split('.').pop())}
-      <div class="grid grid-cols-2 gap-2 w-1/6 min-w-md"><img class="object-scale-down" src={ convertFileSrc(`${resource}/ExportData/${attachment.url}`) }/></div>
+      <div class="grid grid-cols-2 gap-2 w-1/6 min-w-md"><img class="object-scale-down" src={ convertFileSrc(`${resource}/ExportData/${attachment.url.replace("\\","/")}`) }/></div>
       {:else}
       <div class="card bg-base-200 w-max shadow-sm">
         <div class="card-body flex flex-row min-w-sm items-center">
           <div class="flex-auto text-md">{attachment.fileName}</div>
           <div class="flex-none">
-            <button class="hover:bg-base-300 p-2 rounded-lg" onclick={location.href= convertFileSrc(`${resource}/ExportData/${attachment.url}`)}>
+            <button class="hover:bg-base-300 p-2 rounded-lg" onclick={location.href= convertFileSrc(`${resource}/ExportData/${attachment.url.replace("\\","/")}`)}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
             </svg>
