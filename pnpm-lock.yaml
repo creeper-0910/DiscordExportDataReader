@@ -29,10 +29,10 @@ importers:
     devDependencies:
       '@sveltejs/adapter-static':
         specifier: ^3.0.6
-        version: 3.0.8(@sveltejs/kit@2.18.0(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1)))(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1)))
+        version: 3.0.8(@sveltejs/kit@2.20.6(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1)))(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1)))
       '@sveltejs/kit':
-        specifier: ^2.9.0
-        version: 2.18.0(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1)))(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1))
+        specifier: ^2.20.6
+        version: 2.20.6(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1)))(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1))
       '@sveltejs/vite-plugin-svelte':
         specifier: ^5.0.0
         version: 5.0.3(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1))
@@ -226,8 +226,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@polka/url@1.0.0-next.28':
-    resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
+  '@polka/url@1.0.0-next.29':
+    resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
 
   '@rollup/rollup-android-arm-eabi@4.40.1':
     resolution: {integrity: sha512-kxz0YeeCrRUHz3zyqvd7n+TVRlNyTifBsmnmNPtk3hQURUyG9eAB+usz6DAwagMusjx/zb3AjvDUvhFGDAexGw==}
@@ -339,8 +339,8 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^2.0.0
 
-  '@sveltejs/kit@2.18.0':
-    resolution: {integrity: sha512-4DGCGiwNzgnPJySlMe/Qi6rKMK3ntphJaV95BTW+aggaTIAVZ5x3Bp+LURVLMxAEAtWAI5U449NafVxTS+kXbQ==}
+  '@sveltejs/kit@2.20.6':
+    resolution: {integrity: sha512-ImUkSQ//Xf4N9r0HHAe5vRA7RyQ7U1Ue1YUT235Ig+IiIqbsixEulHTHrP5LtBiC8xOkJoPZQ1VZ/nWHNOaGGw==}
     engines: {node: '>=18.13'}
     hasBin: true
     peerDependencies:
@@ -913,7 +913,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@polka/url@1.0.0-next.28': {}
+  '@polka/url@1.0.0-next.29': {}
 
   '@rollup/rollup-android-arm-eabi@4.40.1':
     optional: true
@@ -979,11 +979,11 @@ snapshots:
     dependencies:
       acorn: 8.14.0
 
-  '@sveltejs/adapter-static@3.0.8(@sveltejs/kit@2.18.0(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1)))(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1)))':
+  '@sveltejs/adapter-static@3.0.8(@sveltejs/kit@2.20.6(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1)))(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1)))':
     dependencies:
-      '@sveltejs/kit': 2.18.0(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1)))(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1))
+      '@sveltejs/kit': 2.20.6(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1)))(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1))
 
-  '@sveltejs/kit@2.18.0(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1)))(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1))':
+  '@sveltejs/kit@2.20.6(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1)))(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1))':
     dependencies:
       '@sveltejs/vite-plugin-svelte': 5.0.3(svelte@5.22.1)(vite@6.2.7(jiti@2.4.2)(lightningcss@1.29.1))
       '@types/cookie': 0.6.0
@@ -1327,7 +1327,7 @@ snapshots:
 
   sirv@3.0.1:
     dependencies:
-      '@polka/url': 1.0.0-next.28
+      '@polka/url': 1.0.0-next.29
       mrmime: 2.0.1
       totalist: 3.0.1
 
